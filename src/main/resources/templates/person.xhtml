@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Cadastro de Pessoas</title>
+</h:head>
+<h:body>
+    <h:form id="formPerson">
+        <p:panel header="Cadastro de Pessoa">
+            <p:messages id="messages" />
+
+            <p:inputText id="name" value="#{personBean.person.name}" label="Nome" placeholder="Digite o nome" required="true" />
+            <p:inputNumber id="age" value="#{personBean.person.age}" label="Idade" placeholder="Digite a idade" required="true" />
+            <p:inputText id="gender" value="#{personBean.person.gender}" label="Gênero" placeholder="Digite o gênero" required="true" />
+
+            <p:commandButton value="Salvar" action="#{personBean.save}" update="formPerson" />
+            <p:commandButton value="Limpar" action="#{personBean.clear}" immediate="true" update="formPerson" />
+        </p:panel>
+
+        <p:dataTable value="#{personBean.persons}" var="p" editable="true">
+            <p:column headerText="ID">
+                <h:outputText value="#{p.id}" />
+            </p:column>
+
+            <p:column headerText="Nome">
+                <h:outputText value="#{p.name}" />
+            </p:column>
+
+            <p:column headerText="Idade">
+                <h:outputText value="#{p.age}" />
+            </p:column>
+
+            <p:column headerText="Gênero">
+                <h:outputText value="#{p.gender}" />
+            </p:column>
+
+            <p:column headerText="Ações">
+                <p:commandButton value="Editar" action="#{personBean.edit(p)}" update="formPerson" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

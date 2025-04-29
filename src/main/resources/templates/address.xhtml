@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Cadastro de Endereços</title>
+</h:head>
+<h:body>
+    <h:form id="formAddress">
+        <p:panel header="Cadastro de Endereço">
+            <p:messages id="messages" />
+
+            <p:inputText id="state" value="#{addressBean.address.state}" label="Estado" placeholder="Digite o estado" required="true" />
+            <p:inputText id="city" value="#{addressBean.address.city}" label="Cidade" placeholder="Digite a cidade" required="true" />
+            <p:inputText id="street" value="#{addressBean.address.street}" label="Rua" placeholder="Digite a rua" required="true" />
+            <p:inputNumber id="number" value="#{addressBean.address.number}" label="Número" placeholder="Digite o número" required="true" />
+            <p:inputText id="zipCode" value="#{addressBean.address.zipCode}" label="CEP" placeholder="Digite o CEP" required="true" />
+
+            <p:commandButton value="Salvar" action="#{addressBean.save}" update="formAddress" />
+            <p:commandButton value="Limpar" action="#{addressBean.clear}" immediate="true" update="formAddress" />
+        </p:panel>
+
+        <p:dataTable value="#{addressBean.addresses}" var="a" editable="true">
+            <p:column headerText="ID">
+                <h:outputText value="#{a.id}" />
+            </p:column>
+
+            <p:column headerText="Estado">
+                <h:outputText value="#{a.state}" />
+            </p:column>
+
+            <p:column headerText="Cidade">
+                <h:outputText value="#{a.city}" />
+            </p:column>
+
+            <p:column headerText="Rua">
+                <h:outputText value="#{a.street}" />
+            </p:column>
+
+            <p:column headerText="Número">
+                <h:outputText value="#{a.number}" />
+            </p:column>
+
+            <p:column headerText="CEP">
+                <h:outputText value="#{a.zipCode}" />
+            </p:column>
+
+            <p:column headerText="Ações">
+                <p:commandButton value="Editar" action="#{addressBean.edit(a)}" update="formAddress" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
