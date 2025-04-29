@@ -95,6 +95,7 @@ Tela de listagem de endereços
 
 ## Organização do Código
 
+```bash
 src/main/java
 ├── br.com.cadastropessoas.model
 ├── br.com.cadastropessoas.repository
@@ -105,6 +106,7 @@ src/main/webapp
 ├── index.xhtml
 ├── person.xhtml
 └── address.xhtml
+```
 
 ## Possíveis melhorias futuras
 
