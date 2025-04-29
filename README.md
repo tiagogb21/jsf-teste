@@ -117,3 +117,9 @@ Integração com API externa de CEP
 Autenticação e controle de acesso (JAAS, JWT, etc.)
 
 Testes automatizados (JUnit + Arquillian ou Mockito)
+
+## Autor
+
+Tiago Garbi Baganha
+
+Desenvolvedor Full Stack | Java | React | PostgreSQL | Kubernetes
